@@ -7,7 +7,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'maven-3.8.7'
+        maven 'maven_3.8.7'
     }
     stages {
         stage('chk Java version') {
@@ -37,6 +37,6 @@ pipeline {
                 sh 'java --version'
 				echo 'code packing is completed'
             }
- }
-}
+        }
+    }
 }
