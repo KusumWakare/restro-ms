@@ -7,7 +7,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'maven_3.8.7'
+        maven 'Maven_3.8.8'
     }
     stages {
         stage('chk Java version') {
