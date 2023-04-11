@@ -27,8 +27,8 @@ pipeline {
         stage('Building & Tag Docker Image') {
             steps {
                 echo 'Starting Building Docker Image'
-                sh 'docker build -t restro-ms .'
                 sh 'docker build -t kusumwakare/restro-ms .'
+                 sh 'docker build -t restro-ms .'
                 echo 'Completed  Building Docker Image'
             }
         }
