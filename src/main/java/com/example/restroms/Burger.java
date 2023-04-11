@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class Burger{
     @GetMapping("/myburger")
     public String getData(){
-        return "Please order your fav Burger!!";
+        return "Please order your fav Burger!! flat 30% off";
     }
 }
