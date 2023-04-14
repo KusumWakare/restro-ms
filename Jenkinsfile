@@ -28,7 +28,7 @@ pipeline {
             steps {
                 echo 'Starting Building Docker Image'
                 sh 'docker build -t kusumwakare/restro-ms .'
-                 sh 'docker build -t restro-ms .'
+                 sh 'docker build -t restro-ms .' 
                 echo 'Completed  Building Docker Image'
             }
         }
@@ -55,7 +55,7 @@ pipeline {
         stage(' Docker Image Push to Amazon ECR') {
            steps {
               script {
-                 withDockerRegistry([credentialsId:'ecr:ap-south-1:ecr-credentials', url:"https://559220132560.dkr.ecr.ap-south-1.amazonaws.com"]){
+                 withDockerRegistry([credentialsId:'ecr:ap-south-1:ecr-cred', url:"701158536369.dkr.ecr.ap-south-1.amazonaws.com"]){
                  sh """
                  echo "List the docker images present in local"
                  docker images
