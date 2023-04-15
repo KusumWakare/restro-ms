@@ -55,15 +55,15 @@ pipeline {
         stage(' Docker Image Push to Amazon ECR') {
            steps {
               script {
-                 withDockerRegistry([credentialsId:'ecr:ap-south-1:ecr-cred', url:"https://701158536369.dkr.ecr.ap-south-1.amazonaws.com"]){
+                 withDockerRegistry([credentialsId:'ecr:ap-south-1:ecr-cred', url:"https://701158536369.dkr.ecr.ap-south-1.amazonaws.com/restro-ms"]){
                  sh """
                  echo "List the docker images present in local"
                  docker images
                  echo "Tagging the Docker Image: In Progress"
-                 docker tag restro-ms:latest 559220132560.dkr.ecr.ap-south-1.amazonaws.com/restro-ms:latest
+                 docker tag restro-ms:latest 701158536369.dkr.ecr.ap-south-1.amazonaws.com/restro-ms:latest
                  echo "Tagging the Docker Image: Completed"
                  echo "Push Docker Image to ECR : In Progress"
-                 docker push 559220132560.dkr.ecr.ap-south-1.amazonaws.com/restro-ms:latest
+                 docker push 701158536369.dkr.ecr.ap-south-1.amazonaws.com/restro-ms:latest
                  echo "Push Docker Image to ECR : Completed"
                  """
                  }
@@ -78,5 +78,5 @@ pipeline {
             }
         }
 
-        }
     }
+}
