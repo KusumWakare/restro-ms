@@ -72,9 +72,15 @@ pipeline {
         }
         stage('Upload Docker Images to Nexus') {
             steps {
-                echo 'Docker Image Scanning Started'
-                sh 'java -version'
-                echo 'Docker Image Scanning Started'
+                script {
+                    withCredentials{[usernamePassword(credentialsId: 'nexus-cred', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]} {
+                    sh 'docker login http://52.66.5.226:8085/repository/restro-ms/ -u admin -p $(PASSWORD)'
+                    echo "Push Docker Image to Nexus : In Progress"
+                    sh 'docker tag restro-ms 52.66.5.226:8085/restro-ms:latest'
+                    sh 'docker push 52.66.5.226:8085/restro-ms'
+                    echo "Push Docker Image to Nexus : Completed"
+                    }
+                }
             }
         }
     }
