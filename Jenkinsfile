@@ -74,10 +74,10 @@ pipeline {
             steps {
                 script {
                     withCredentials{[usernamePassword(credentialsId: 'nexus-cred', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]} {
-                    sh 'docker login http://52.66.5.226:8085/repository/restro-ms/ -u admin -p $(PASSWORD)'
+                    sh 'docker login http://35.154.102.119:8085/repository/restro-ms/ -u admin -p $(PASSWORD)'
                     echo "Push Docker Image to Nexus : In Progress"
-                    sh 'docker tag restro-ms 52.66.5.226:8085/restro-ms:latest'
-                    sh 'docker push 52.66.5.226:8085/restro-ms'
+                    sh 'docker tag restro-ms 35.154.102.119:8085/restro-ms:latest'
+                    sh 'docker push 35.154.102.119:8085/restro-ms'
                     echo "Push Docker Image to Nexus : Completed"
                     }
                 }
