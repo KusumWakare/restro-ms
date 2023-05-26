@@ -86,7 +86,7 @@ pipeline {
               }
            }
         }
-        stage('Upload Docker Images to Nexus') {
+        /*stage('Upload Docker Images to Nexus') {
             steps {
                 script {
                     withCredentials{[usernamePassword(credentialsId: 'nexus-cred', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]} {
@@ -98,6 +98,6 @@ pipeline {
                     }
                 }
             }
-        }
+        } */
     }
 }
